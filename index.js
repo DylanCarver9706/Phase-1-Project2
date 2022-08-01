@@ -12,6 +12,7 @@ document.addEventListener('DOMContentLoaded',() => {
 })
 
 // add a dropdown
+console.log(1+2);
 
 
 // appends each currency to the dropdown
