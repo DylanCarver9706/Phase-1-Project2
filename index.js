@@ -1,5 +1,7 @@
 const apiLink = 'https://api.coingecko.com/api/v3/exchange_rates';
 let currencyList = null;
+currencyOne = null;
+currencyTwo = null;
 
 document.addEventListener('DOMContentLoaded',() => {
     //const body = document.querySelector('body');
@@ -32,25 +34,40 @@ document.addEventListener('DOMContentLoaded',() => {
     function dropdownHandlerFrom(e){
         let currencyKey = e.target.value;
         let currencyInfo = currencyList[currencyKey]
-        displayInfo(currencyInfo)
+        currencyOne = currencyInfo;
+        displayConversion(currencyOne, currencyTwo)
     }
 
     function dropdownHandlerTo(e){
         let currencyKey = e.target.value;
         let currencyInfo = currencyList[currencyKey]
-        displayInfo(currencyInfo)
+        currencyTwo = currencyInfo;
+        displayConversion(currencyOne, currencyTwo)
     }
 
-    // renders info about currency on the DOM
-    function displayInfo(currency){
-        const name = currency.name;
-        const type = currency.type;
-        const unit = currency.unit;
-        const value = currency.value;
-        console.log(name);
-        console.log(type);
-        console.log(unit);
-        console.log(value);
+    // converts currency and displays
+    function displayConversion(currencyOne, currencyTwo){
+        if (currencyOne && currencyTwo){
+            let valueOne = currencyOne.value;
+            let valueTwo = currencyTwo.value;
+            let oneEquals = (valueTwo / valueOne).toFixed(2);
+            console.log(`1 ${currencyOne.name} equals ${oneEquals} ${currencyTwo.name}`);
+        }
     }
+
+    // display conversion rate between the two currencies
+
+
+    // renders info about currency on the DOM
+    // function displayInfo(currency){
+    //     const name = currency.name;
+    //     const type = currency.type;
+    //     const unit = currency.unit;
+    //     const value = currency.value;
+    //     console.log(name);
+    //     console.log(type);
+    //     console.log(unit);
+    //     console.log(value);
+    // }
 
 })
