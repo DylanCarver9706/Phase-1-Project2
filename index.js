@@ -2,6 +2,7 @@ const apiLink = 'https://api.coingecko.com/api/v3/exchange_rates';
 let currencyList = null;
 let currencyOne = null;
 let currencyTwo = null;
+let currentHowMuch = 1;
 
 document.addEventListener('DOMContentLoaded',() => {
     //const body = document.querySelector('body');
@@ -35,20 +36,23 @@ document.addEventListener('DOMContentLoaded',() => {
         let currencyKey = e.target.value;
         let currencyInfo = currencyList[currencyKey]
         currencyOne = currencyInfo;
-        displayConversion(currencyOne, currencyTwo)
+        displayConversion(currencyOne, currencyTwo, currentHowMuch)
     }
 
     function dropdownHandlerTo(e){
         let currencyKey = e.target.value;
         let currencyInfo = currencyList[currencyKey]
         currencyTwo = currencyInfo;
-        displayConversion(currencyOne, currencyTwo)
+        displayConversion(currencyOne, currencyTwo, currentHowMuch)
     }
 
     let display = document.querySelector('#display-conversion');
 
     // converts currency and displays
     function displayConversion(currencyOne, currencyTwo, howMuch = 1){
+        if (!howMuch){
+            howMuch = 0;
+        }
         if (currencyOne && currencyTwo){
             let valueOne = currencyOne.value;
             let valueTwo = currencyTwo.value;
@@ -58,11 +62,10 @@ document.addEventListener('DOMContentLoaded',() => {
         }
     }
 
-    let target = null // fill in with new HTML element Dylan is creating
-    target.addEventListener('keyup', (e) => {
-        console.log(e.target.value);
-        newValue = 0;
-        displayConversion(currencyOne, currencyTwo, howMuch = newValue);
+    let input = document.querySelector('form') // fill in with new HTML element Dylan is creating
+    input.addEventListener('keyup', (e) => {
+        currentHowMuch = parseInt(e.target.value);
+        displayConversion(currencyOne, currencyTwo, currentHowMuch);
     })
 
     // display conversion rate between the two currencies
