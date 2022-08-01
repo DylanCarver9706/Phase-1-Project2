@@ -1,7 +1,7 @@
 const apiLink = 'https://api.coingecko.com/api/v3/exchange_rates';
 let currencyList = null;
-currencyOne = null;
-currencyTwo = null;
+let currencyOne = null;
+let currencyTwo = null;
 
 document.addEventListener('DOMContentLoaded',() => {
     //const body = document.querySelector('body');
@@ -45,15 +45,25 @@ document.addEventListener('DOMContentLoaded',() => {
         displayConversion(currencyOne, currencyTwo)
     }
 
+    let display = document.querySelector('#display-conversion');
+
     // converts currency and displays
-    function displayConversion(currencyOne, currencyTwo){
+    function displayConversion(currencyOne, currencyTwo, howMuch = 1){
         if (currencyOne && currencyTwo){
             let valueOne = currencyOne.value;
             let valueTwo = currencyTwo.value;
-            let oneEquals = (valueTwo / valueOne).toFixed(2);
-            console.log(`1 ${currencyOne.name} equals ${oneEquals} ${currencyTwo.name}`);
+            let convertValue = ((valueTwo / valueOne) * howMuch).toFixed(2);
+            let convertMessage = `${howMuch} ${currencyOne.name} equals ${convertValue} ${currencyTwo.name}`;
+            display.innerText = convertMessage;
         }
     }
+
+    let target = null // fill in with new HTML element Dylan is creating
+    target.addEventListener('keyup', (e) => {
+        console.log(e.target.value);
+        newValue = 0;
+        displayConversion(currencyOne, currencyTwo, howMuch = newValue);
+    })
 
     // display conversion rate between the two currencies
 
