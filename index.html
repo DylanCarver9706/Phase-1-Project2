@@ -1,29 +1,36 @@
 <!doctype html>
 <html dir="[direction]" lang="[language]" class="[class names]">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="stylesheet" type="text/css" href="styles.css" />
-		<script type="text/javascript" src="./index.js"></script>
-		<title>Conversion Calculator</title>
-	</head>
-	<body>
-		<h1>Conversion Calculator</h1>
-		<label for="select-currency">Convert</label>
-		<form>
-			<input type="number" name="name" id="amount" placeholder="$"> <br>
-		</form>
-		<select id="currency-dropdown" name="select-currency" > 
-			<option value=“select1”>Select Currency</option>
-		</select>
-		<label for="select-currency2">To</label>
-		<select id="currency-dropdown2" name="select-currency2">
-			<option value=“select1”>Select Currency</option>
-		</select>
-		<div>
-			<h2 id="display-conversion"></h2>
+
+<head>
+	<meta charset="utf-8" />
+	<link rel="stylesheet" type="text/css" href="styles.css" />
+	<script type="text/javascript" src="./index.js"></script>
+	<title>Conversion Calculator</title>
+</head>
+
+<body>
+	<div id="box">
+		<h1>Real Time Currency Converter</h1>
+		<div id="functions">
+			<label for="select-currency">Convert&nbsp;</label>
+			<form>
+				<input type="number" name="name" id="amount" placeholder="$">&nbsp;<br>
+			</form>
+			<select id="currency-dropdown" name="select-currency">
+				<option value=“select1”>Select Currency</option>
+			</select>
+			<label for="select-currency2">&nbsp;To&nbsp;</label>
+			<select id="currency-dropdown2" name="select-currency2">
+				<option value=“select1”>Select Currency</option>
+			</select>
 		</div>
-		<!-- add placeholder that says "select currencys to see conversion rate" -->
-		<!-- put currency in alphabeticl order -->
-		
-	</body>
+		<div>
+			<h2 id="display-conversion">1 US Dollar equals 0.98 Euro</h2>
+			<image
+				src="https://media.istockphoto.com/photos/world-currency-rates-picture-id483658563?k=20&m=483658563&s=612x612&w=0&h=4X8ZLiaDPtJV3kiRfBc8C6E4-aTqwVTYplnRgAI18D4=">
+			</image>
+		</div>
+	</div>
+</body>
+
 </html>

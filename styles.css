@@ -1,0 +1,14 @@
+#box {
+    margin: auto;
+    width: 50%;
+    border: 7px solid black;
+    padding: 50px;
+    background-color: lightsteelblue;
+    text-align: center
+}
+
+#functions {
+    /* display:inline-block */
+    display: flex;
+    justify-content: center
+}
